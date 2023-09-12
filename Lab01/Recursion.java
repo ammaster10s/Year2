@@ -1,3 +1,4 @@
+package Lab01;
 import java.lang.Math;
 public class Recursion {
  
@@ -25,17 +26,17 @@ public class Recursion {
 
             // Test Uncomment these lines below to test your subsum code
            
-                // System.out.println("Calculating subsum(10):");
-		        // System.out.println("Your answer is "+subsum(10));
-                // System.out.println("The correct answer is -5");
-                // System.out.println("-----------------------"); 
+                System.out.println("Calculating subsum(10):");
+		        System.out.println("Your answer is "+subsum(10));
+                System.out.println("The correct answer is -5");
+                System.out.println("-----------------------"); 
            
 
             // Uncomment these lines below to test your sumDigit code
             // /* 
-                 System.out.println("sumDigit(123456789)");
-		 System.out.println("Your answer is "+ sumDigit(123456789));
-                 System.out.println("The correct answer is 45");
+                System.out.println("sumDigit(123456789)");
+                System.out.println("Your answer is "+ sumDigit(123456789));
+                System.out.println("The correct answer is 45");
             // */
 	}
     
