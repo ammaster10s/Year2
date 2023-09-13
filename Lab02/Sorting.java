@@ -77,7 +77,7 @@ public class Sorting {
 			printArray(A);
 		}
 	}
-	
+
 
 	/**
 	 * Sorts an integer array using the Insertion Sort algorithm.
@@ -288,12 +288,12 @@ public class Sorting {
 //		 * 
 //		 * 9 12 22 36 45 51 64 75 89	
 //		 */
-		// System.out.println("\nQuick Sort");
-		// int[] D = { 45, 12, 89, 36, 64, 22, 75, 51, 9 };
-		// printArray(D);
-		// System.out.println("Your Solution is ");
-		// RecursiveQuickSort(D, 0, D.length - 1);
-		// printArray(D);
+		System.out.println("\nQuick Sort");
+		int[] D = { 45, 12, 89, 36, 64, 22, 75, 51, 9 };
+		printArray(D);
+		System.out.println("Your Solution is ");
+		RecursiveQuickSort(D, 0, D.length - 1);
+		printArray(D);
 	}
 
 }

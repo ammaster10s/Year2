@@ -1,5 +1,4 @@
 package Lab02;
-import java.lang.Math;
 public class HashTable {
 	int[] H;
 	int hsize;
