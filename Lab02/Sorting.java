@@ -265,23 +265,23 @@ public class Sorting {
 //		 * 12 9 22 36 45 51 64 75 89 	
 //		 * 9 12 22 36 45 51 64 75 89 		
 //		 */
-		// System.out.println("\nInsertion Sort");
-		// int[] B = { 45, 12, 89, 36, 64, 22, 75, 51, 9 };
-		// printArray(B);
-		// System.out.println("Your Solution is ");
-		// InsertionSort(B);
+		System.out.println("\nInsertion Sort");
+		int[] B = { 45, 12, 89, 36, 64, 22, 75, 51, 9 };
+		printArray(B);
+		System.out.println("Your Solution is ");
+		InsertionSort(B);
 
 //		/**
 //		 * The correct answer for a Merge Sort is
 //		 * 
 //		 * 9 12 22 36 45 51 64 75 89	
 //		 */
-		// System.out.println("\nMerge Sort");
-		// int[] C = { 45, 12, 89, 36, 64, 22, 75, 51, 9 };
-		// printArray(C);
-		// System.out.println("Your Solution is ");
-		// RecursiveMergeSort(C);
-		// printArray(C);
+		System.out.println("\nMerge Sort");
+		int[] C = { 45, 12, 89, 36, 64, 22, 75, 51, 9 };
+		printArray(C);
+		System.out.println("Your Solution is ");
+		RecursiveMergeSort(C);
+		printArray(C);
 
 //		/**
 //		 * The correct answer for a Quick Sort is
