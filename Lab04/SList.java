@@ -1,4 +1,4 @@
-package Lab03;
+package Lab04;
 /**
  * The {@code SList} class represents a singly linked list that can hold
  * elements of a generic type {@code T}. It provides methods for adding elements
@@ -146,19 +146,21 @@ public class SList<T> {
 		
 		if(index == 0 ){
 			removeFirst();
+			
 		}
 		else if (index == size ){
 			removeLast();
 		}
-		else {
+		else  {
 		for ( int i = 0 ; i<index-1 ;i++){
 			temp = temp.next;
 		}
-		Node<T> toRemove = temp.next;
+		Node <T> toRemove = temp.next;
 		temp.next = null;
 		temp.next = toRemove.next  ;
 		
 		size-- ;
+		return toRemove.element;
 	}
 		return null;
 	}
