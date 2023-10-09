@@ -38,8 +38,16 @@ class Stack<T> {
 	 * @return The element removed from the top of the stack.
 	 */
 	T pop() {// Exercise 1b
-        
+
+        if ( !list.isEmpty()){
+
        	return list.removeFirst();
+		}
+
+		else{
+
+			return null;
+		}
 		
 	}
 
@@ -50,7 +58,15 @@ class Stack<T> {
 	 */
 	T peek() {// Exercise 1c
 
+		if ( !list.isEmpty()){
+
 		return list.first.element;
+		
+		}
+
+		else{
+			return null;
+		}
 		
 	}
 
@@ -86,14 +102,18 @@ class Stack<T> {
 	 * @param x The integer to be converted to binary.
 	 */
 	static void binaryConversion(int x) {// Exercise 2
+
 		Stack<Integer> answer = new Stack<Integer>();
+
 		if( x != 0){
+
 		while (x != 0) {
 			int remainder = x % 2;
 			answer.push(remainder);
 			x = x / 2;
 
 		}}
+		
 		else if ( x ==  0){
 			answer.push(0);
 		}
@@ -133,8 +153,9 @@ class Stack<T> {
 
 		for ( int i = 0 ; i<word.length() ; i++ ){
 
-			
-			reverseStack.push(word.charAt(i));
+			word = word.toLowerCase();
+			// System.out.println(word);
+			reverseStack.push((word.charAt(i)));
 			normal.push(word.charAt(i));}
 
 			

@@ -4,84 +4,83 @@ class TestStack {
 
 	public static void main(String[] args) {
 
-		// // ============================ Ex.1(a) ============================
-		// // The result should be :
-		// // 1
-		// // 7
-		// // 5
-		// // 2
-		// // Uncomment this part of code to test your result in Ex.1(a)
-		// System.out.println("***Testing Push for Ex1a***");
-		// Stack<Integer> S = new Stack<Integer>();
-		// S.push(2);
-		// S.push(5);
-		// S.push(7);
-		// S.push(1);
-		// System.out.println("Your result is : ");
-		// S.printVertical();
+		// ============================ Ex.1(a) ============================
+		// The result should be :
+		// 1
+		// 7
+		// 5
+		// 2
+		// Uncomment this part of code to test your result in Ex.1(a)
+		System.out.println("***Testing Push for Ex1a***");
+		Stack<Integer> S = new Stack<Integer>();
+		S.push(2);
+		S.push(5);
+		S.push(7);
+		S.push(1);
+		System.out.println("Your result is : ");
+		S.printVertical();
 
-		// // ============================ Ex.1(b) ============================
-		// // continue from the previous exercise
-		// // The result should be :
-		// // 5
-		// // 2
-		// // uncomment the lines below
-		// System.out.println("\n***Testing Pop for Ex1b***");
-		// S.pop();
-		// S.pop();
-		// System.out.println("Your result is : ");
-		// S.printVertical();
+		// ============================ Ex.1(b) ============================
+		// continue from the previous exercise
+		// The result should be :
+		// 5
+		// 2
+		// uncomment the lines below
+		System.out.println("\n***Testing Pop for Ex1b***");
+		S.pop();
+		S.pop();
+		System.out.println("Your result is : ");
+		S.printVertical();
 
-		// // ============================ Ex.1(c) ============================
-		// // continue from the previous exercise
-		// // The result should be :
-		// // 5
-		// // 2
-		// // uncomment the lines below
-		// System.out.println("\n***Testing Peek for Ex1c***");
-		// System.out.println("Your result is : ");
-		// System.out.println(S.peek());
-		// System.out.println();
-		// System.out.println();
+		// ============================ Ex.1(c) ============================
+		// continue from the previous exercise
+		// The result should be :
+		// 5
+		// uncomment the lines below
+		System.out.println("\n***Testing Peek for Ex1c***");
+		System.out.println("Your result is : ");
+		System.out.println(S.peek());
+		System.out.println();
+		System.out.println();
 
-		// // ============================ Ex.2 ============================
+		// ============================ Ex.2 ============================
 
-		// System.out.println("----------------Ex2: Binary Conversion------------");
-		// // You may comment previous testing of Ex1
-		// // The correct answer should be :
-		// // 1 0 0 1 1
+		System.out.println("----------------Ex2: Binary Conversion------------");
+		// You may comment previous testing of Ex1
+		// The correct answer should be :
+		// 1 0 0 1 1
 
-		// System.out.println("Finding the binary value of 19 ");
-		// System.out.print("Your result is : ");
-		// Stack.binaryConversion(19);
+		System.out.println("Finding the binary value of 19 ");
+		System.out.print("Your result is : ");
+		Stack.binaryConversion(19);
 
-		// // The correct answer should be :
-		// // 0
-		// System.out.println("Finding the binary value of 0");
-		// System.out.print("Your result is : ");
-		// Stack.binaryConversion(0);
+		// The correct answer should be :
+		// 0
+		System.out.println("Finding the binary value of 0");
+		System.out.print("Your result is : ");
+		Stack.binaryConversion(0);
 
-		// // The correct answer should be :
-		// // 1
-		// System.out.println("Finding the binary value of 1");
-		// System.out.print("Your result is : ");
-		// Stack.binaryConversion(1);
+		// The correct answer should be :
+		// 1
+		System.out.println("Finding the binary value of 1");
+		System.out.print("Your result is : ");
+		Stack.binaryConversion(1);
 
-		// System.out.println("----------------Ex.3 Inverse Stack------------");
-		// // The result should be :
-		// // 9
-		// // 8
-		// // 7
-		// // 6
-		// Stack<Integer> S2 = new Stack<Integer>();
-		// for (int i = 9; i > 5; i--)
-		// 	S2.push(i);
-		// System.out.println("Original Stack ");
-		// S2.printVertical();
-		// System.out.println("After Reverse ");
-		// Stack<Integer> rvS2 = S2.reverseStack();
-		// System.out.println("Your result is : ");
-		// rvS2.printVertical();
+		System.out.println("----------------Ex.3 Inverse Stack------------");
+		// The result should be :
+		// 9
+		// 8
+		// 7
+		// 6
+		Stack<Integer> S2 = new Stack<Integer>();
+		for (int i = 9; i > 5; i--)
+			S2.push(i);
+		System.out.println("Original Stack ");
+		S2.printVertical();
+		System.out.println("After Reverse ");
+		Stack<Integer> rvS2 = S2.reverseStack();
+		System.out.println("Your result is : ");
+		rvS2.printVertical();
 
 		System.out.println("----------------Ex4 : isPalindrome------------");
 		String word1 = "gatemannametag";

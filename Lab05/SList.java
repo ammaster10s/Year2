@@ -1,4 +1,4 @@
-package Lab03;
+package Lab05;
 /**
  * The {@code SList} class represents a singly linked list that can hold
  * elements of a generic type {@code T}. It provides methods for adding elements
@@ -54,15 +54,21 @@ public class SList<T> {
 	 * @param element The element to be added to the list.
 	 */
 	void addLast(T element) {
-
 		Node<T> newNode = new Node<T>(element);
-		last.next = newNode;
-		last = newNode;
-		size++ ;
-
-		if (last == null){
-			last = first;}
+	
+		if (last == null) {
+			// The list is empty, so both first and last should point to the new node
+			first = newNode;
+			last = newNode;
+		} else {
+			// The list is not empty, so update the next reference of the current last node
+			last.next = newNode;
+			last = newNode;
+		}
+	
+		size++;
 	}
+	
 
 	/**
 	 * Adds a new element at the specified index in the singly linked list. If the

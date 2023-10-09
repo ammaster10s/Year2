@@ -54,15 +54,21 @@ public class SList<T> {
 	 * @param element The element to be added to the list.
 	 */
 	void addLast(T element) {
-
 		Node<T> newNode = new Node<T>(element);
-		last.next = newNode;
-		last = newNode;
-		size++ ;
-
-		if (last == null){
-			last = first;}
+		
+		if (last == null) {
+			
+			first = newNode;
+			last = newNode;
+		} else {
+			
+			last.next = newNode;
+			last = newNode;
+		}
+		
+		size++;
 	}
+	
 
 	/**
 	 * Adds a new element at the specified index in the singly linked list. If the
