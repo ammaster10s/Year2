@@ -1,6 +1,5 @@
 package Lab05;
 
-import javax.swing.plaf.TreeUI;
 
 public class QueueApp {
 	/**
@@ -30,7 +29,7 @@ public class QueueApp {
 	static boolean isPrefix(String x, String y, String z) {
 		if (!isInteger(x) && isInteger(y) && isInteger(z))
 			return true;
-		else
+		
 			return false;
 	}
 
@@ -80,7 +79,7 @@ public class QueueApp {
 			String x = Q.dequeue();
 			String y = Q.dequeue();
 			String z = Q.dequeue();
-			while (Q.list.size != 1) {
+			while (Q.list.size >= 0) {
 				
 				
 				if (isPrefix(x, y, z)) {

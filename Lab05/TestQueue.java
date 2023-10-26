@@ -53,7 +53,7 @@ public class TestQueue {
         System.out.println("Your Q size is :" + Q.list.size);
         System.out.print("Your Q2 content is: ");
         Q2.printHorizontal();
-        System.out.println("Your Q2 size is :" + Q.list.size);
+        System.out.println("Your Q2 size is :" + Q2.list.size);
         System.out.println("----------");
 
         // Exercise 3
@@ -215,6 +215,7 @@ public class TestQueue {
         int quota = 3;
         System.out.println("Your result is ");
         QueueApp.makeRoundRobin(RRB, P, quota, amount);
+        System.out.println();
     }
 
 }

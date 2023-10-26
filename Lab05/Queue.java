@@ -106,13 +106,12 @@ public class Queue<T> {
 				temp2.enqueue(item2);
 			}
 
-			while (!temp1.isEmpty()) {
+			while (!temp1.isEmpty() && !temp2.isEmpty()) {
 				enqueue(temp1.dequeue());
-			}
-
-			while (!temp2.isEmpty()) {
 				Q2.enqueue(temp2.dequeue());
 			}
+
+			
 		}
 
 		else {
