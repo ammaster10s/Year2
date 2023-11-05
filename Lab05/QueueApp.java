@@ -1,6 +1,5 @@
 package Lab05;
 
-
 public class QueueApp {
 	/**
 	 * Checks if a given string represents an integer.
@@ -29,8 +28,8 @@ public class QueueApp {
 	static boolean isPrefix(String x, String y, String z) {
 		if (!isInteger(x) && isInteger(y) && isInteger(z))
 			return true;
-		
-			return false;
+
+		return false;
 	}
 
 	/**
@@ -80,16 +79,13 @@ public class QueueApp {
 			String y = Q.dequeue();
 			String z = Q.dequeue();
 			while (Q.list.size >= 0) {
-				
-				
+
 				if (isPrefix(x, y, z)) {
 					String total = evalPrefixString(x, y, z);
 					Q.enqueue(total);
-					
-					
-					
+
 					if (Q.list.size >= 3) {
-						
+
 						x = Q.dequeue();
 						y = Q.dequeue();
 						z = Q.dequeue();
@@ -97,12 +93,12 @@ public class QueueApp {
 						return Q.dequeue();
 					}
 				} else {
-					
+
 					Q.enqueue(x);
 					x = y;
 					y = z;
 					z = Q.dequeue();
-					
+
 				}
 			}
 			return Q.dequeue();
@@ -126,26 +122,26 @@ public class QueueApp {
 			String name = P.dequeue();
 			if (limit <= resourceAmt) {
 				if (temp >= limit) {
-					resourceAmt -= limit ;
+					resourceAmt -= limit;
 					temp -= limit;
-					if (temp > 0 ){
-					Q.enqueue(temp);
-					P.enqueue(name);
+					if (temp > 0) {
+						Q.enqueue(temp);
+						P.enqueue(name);
 					}
 					printRoundRobin(Q, P, resourceAmt);
 				} else {
-					resourceAmt -= temp ;
+					resourceAmt -= temp;
 					printRoundRobin(Q, P, resourceAmt);
 				}
 			} else {
 				if (temp > resourceAmt) {
 					temp -= resourceAmt;
-					resourceAmt = 0 ;
+					resourceAmt = 0;
 					Q.enqueue(temp);
 					P.enqueue(name);
 				} else {
 					resourceAmt -= temp;
-					temp =0 ;
+					temp = 0;
 				}
 				printRoundRobin(Q, P, resourceAmt);
 			}
