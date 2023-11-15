@@ -166,7 +166,7 @@ public class BST<T extends Comparable<T>> extends BT<T> {
                 maxleftParent.right = maxleft.left;
 
             } else if (maxleftParent == current) { // Case 3.3 if maxleft is leftchild of current, then ..
-                current.left = null;
+                current.left = maxleft.left;
 
             }
         }
