@@ -65,7 +65,7 @@ public class Heap {
 		int lastIndex = load - 1;
 		int rightChildIndex = currentIndex * 2 + 1;
 		int leftChildIndex = currentIndex * 2 + 2;
-		if (currentIndex * 2 + 2 <= lastIndex) {
+		if (currentIndex * 2 + 2 <= lastIndex) { // If currentindex still in range of Arrray
 			int largestIndex = currentIndex;
 
 			if (hArray[rightChildIndex] > hArray[leftChildIndex]) {
@@ -74,9 +74,9 @@ public class Heap {
 				largestIndex = leftChildIndex;
 			}
 
-			if (hArray[largestIndex] > hArray[currentIndex]) {
+			if (hArray[largestIndex] > hArray[currentIndex]) { // swap the largest between left / right
 				swap(hArray, currentIndex, largestIndex);
-				reheapDown(largestIndex);
+				reheapDown(largestIndex); // Loop reheap down if possible
 			}
 		}
 
@@ -91,11 +91,11 @@ public class Heap {
 	int deleteRoot() {
 		int temp = hArray[0];
 		if (load > 0) {
-			hArray[0] = hArray[load - 1];
-			hArray[load - 1] = 0;
+			hArray[0] = hArray[load - 1]; // Replace the removed with the last in array
+			hArray[load - 1] = 0; // Null the last place in array
 			load--;
 
-			reheapDown(0);
+			reheapDown(0); // Reheap down to correct the structure
 		}
 		return temp;
 	}
@@ -108,7 +108,7 @@ public class Heap {
 
 		// add your code here
 		while (load > 0) {
-			System.out.print(deleteRoot() + " ");
+			System.out.print(deleteRoot() + " "); // Just delete the root since in Heap the data must be sorted already.
 		}
 		System.out.println();
 
