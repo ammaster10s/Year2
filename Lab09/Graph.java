@@ -113,18 +113,20 @@ public class Graph<T> {
     void insertVertex(T newVertex) { // Exercise 1
 
         // A temporary adjacency list representing the new vertex.
-        AdjList<T> temp = new AdjList<T>();
+        AdjList<T> temp = new AdjList<T>(); // crate vertex ( adjlist)
 
         // Set the data of the temporary adjacency list to the new vertex.
-        temp.data = newVertex;
+        temp.data = newVertex; // Insert data
 
-        if (vertexCount == 0) {
+        if (vertexCount == 0) { // If there is no vertex vertex == first == last
             firstList = temp;
+            lastList = temp;
 
         } else {
             AdjList<T> pointer = firstList;
 
-            for (int i = 0; i < vertexCount - 1; i++) {
+            for (int i = 0; i < vertexCount - 1; i++) { // loop the vertex untill found empty space ; can you both null
+                                                        // or vertexcount -1
 
                 pointer = pointer.nextList;
             }
@@ -149,7 +151,7 @@ public class Graph<T> {
         // list.
         AdjList<T> current = firstList;
 
-        while (current != null) {
+        while (current != null) { // Loop until data == current.data
             if (current.data == data) {
 
                 return current;
@@ -160,7 +162,7 @@ public class Graph<T> {
                 current = current.nextList;
             }
         }
-        return null;
+        return null; // if not found
     }
 
     /**
@@ -193,16 +195,18 @@ public class Graph<T> {
         // temp = temp.nextMember;}
         // temp.nextMember = newMember;} // edgeCount++;
 
-        AdjList<T> fromAdjList = searchAdjList(fromData);
+        AdjList<T> fromAdjList = searchAdjList(fromData); // Origin vertex
         Member<T> newMember = new Member<T>(toData, weight);
 
-        if (fromAdjList == null) {
+        if (fromAdjList == null) { // If no vertex just null
             return;
-        } else {
-            newMember.nextMember = fromAdjList.firstMember;
+        } else { // if found vertex
+            newMember.nextMember = fromAdjList.firstMember; // if have vertex move the vertex's member to left and
+                                                            // replace on the adj.first = member
             fromAdjList.firstMember = newMember;
-            fromAdjList.outdegree++;
-            edgeCount++;
+            fromAdjList.outdegree++; // don't forget to add the outdegree and edge count ++
+            edgeCount += 1;
+
         }
 
     }
@@ -218,20 +222,24 @@ public class Graph<T> {
         // The adjacency list corresponding to the vertex from which the edge starts.
         AdjList<T> fromAdjList = searchAdjList(fromData);
 
-        if (fromAdjList == null)
+        if (fromAdjList == null) // If not found any vertex just skip
             return;
 
-        if (fromAdjList.firstMember != null && toData.equals(fromAdjList.firstMember.adjVertex)) {
-            fromAdjList.firstMember = fromAdjList.firstMember.nextMember;
-            fromAdjList.outdegree--;
+        if (fromAdjList.firstMember != null && toData.equals(fromAdjList.firstMember.adjVertex)) { // If edge is in the
+                                                                                                   // first member
+            fromAdjList.firstMember = fromAdjList.firstMember.nextMember; // just skil the first vertex
+            fromAdjList.outdegree--; // don't forget to outdegree and edgecount --
             edgeCount--;
 
-        } else if (fromAdjList.firstMember != null && !toData.equals(fromAdjList.firstMember.adjVertex)) {
-            Member<T> temp = fromAdjList.firstMember;
-            while (temp != null && temp.nextMember != null) {
-                if (!toData.equals(temp.nextMember.adjVertex)) {
+        } else if (fromAdjList.firstMember != null && !toData.equals(fromAdjList.firstMember.adjVertex)) { // If edge is
+                                                                                                           // not the
+                                                                                                           // first
+            Member<T> temp = fromAdjList.firstMember; // pointer
+            while (temp != null && temp.nextMember != null) { // While pointer != and its member is not null
+                if (!toData.equals(temp.nextMember.adjVertex)) { // if pointer not equal to deleteedge
                     temp = temp.nextMember;
                 } else {
+
                     temp.nextMember = temp.nextMember.nextMember;
                     fromAdjList.outdegree--;
                     edgeCount--;
@@ -256,30 +264,33 @@ public class Graph<T> {
 
         while (currentAdjList != null) {
 
-            if (!currentAdjList.data.equals(vertex)) {
-
+            if (!currentAdjList.data.equals(vertex)) { // if the pointer is not at the deleted vertex
+                                                       // Check if it's containing the edge that contain delete vertex
                 deleteEdge(currentAdjList.data, vertex);
 
             } else {
 
-                if (currentAdjList == firstList) {
+                if (currentAdjList == firstList) { // if vertex is firstlist
 
-                    firstList = currentAdjList.nextList;
+                    firstList = currentAdjList.nextList; // skip to nextlist
 
                 } else if (currentAdjList == lastList) {
 
-                    lastList = prevAdjList;
+                    lastList = prevAdjList; // If last null it and reassign lastlist
                     lastList.nextList = null;
 
                 } else {
 
-                    prevAdjList.nextList = currentAdjList.nextList;
+                    prevAdjList.nextList = currentAdjList.nextList; // If it is between vertex prev.next = curr.next ((
+                                                                    // skilling curr ))
                 }
-                vertexCount--;
-                edgeCount -= currentAdjList.outdegree;
+                vertexCount--; // If it is in else loop its mean that it's found the vertex so it much be
+                               // delete
+                edgeCount -= currentAdjList.outdegree; // Delete the edge count by curr.degree since delete the vertex
+                                                       // also delete it is edge
 
             }
-            prevAdjList = currentAdjList;
+            prevAdjList = currentAdjList; // temp = curr ; curr = curr.next
             currentAdjList = currentAdjList.nextList;
         }
 
