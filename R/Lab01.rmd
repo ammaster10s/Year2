@@ -1,0 +1,100 @@
+---
+title: "Lab 1: Intro to R"
+author: "Author Name"
+date: "`r Sys.Date()`"
+output: openintro::lab_report
+---
+
+```{r load-packages, message=FALSE}
+library(tidyverse)
+library(openintro)
+```
+
+### Exercise 1
+
+What command would you use to extract just the counts of boys baptized? Try it out in the console!
+
+```{r view-boys-counts}
+arbuthnot$boys
+```
+
+### Exercise 2
+
+Is there an apparent trend in the number of boys baptized over the years? How would you describe it? (To ensure that your lab report is comprehensive, be sure to include the code needed to make the plot as well as your written interpretation.)
+
+```{r trend-girls}
+
+ggplot(data = arbuthnot, aes(x = year, y = boys)) +
+    geom_line()
+```
+
+There's a positive trend in the number of boys baptized over the years except ffor between 1620 and 1640.
+
+### Exercise 3
+
+Now, generate a plot of the proportion of girls born over time. What do you see?
+
+```{r plot-prop-boys-arbuthnot}
+arbuthnot <- arbuthnot %>%
+  mutate(total = boys + girls, girls_percentage = girls / total)
+ggplot(data = arbuthnot, aes(x = year, y = girls_percentage)) +
+    geom_line()
+```
+
+There are no trends in proportion of girls born over time.
+
+### Exercise 4
+
+What years are included in this data set? What are the dimensions of the data frame? What are the variable (column) names?
+
+```{r dim-present}
+present$year
+range(present$year)
+names(present)
+```
+
+The data range from year 1940 - 2002. The frame has 63 rows and 3 columns.The variables (columns) in the data frame are named "year" "boys" "girls"
+
+### Exercise 5
+
+How do these counts compare to Arbuthnot’s? Are they of a similar magnitude?
+
+```{r count-compare}
+arbuthnot$girls + arbuthnot$boys
+present$girls + present$boys
+
+range(arbuthnot$year)
+range(present$year)
+```
+
+Both are different in term of the magnitude (numbers) in Arbuthnot's case it is only range to a 10 thounsand meanwhile present dataset range to a millions. and the year Arbuthnot 1629 - 1710 when compare to present's 1940 - 2002
+
+### Exercise 6
+
+Make a plot that displays the proportion of girls born over time. What do you see? Does Arbuthnot’s observation about girls being born in greater proportion than boys hold up in the U.S.? Include the plot in your response. Hint: You should be able to reuse your code from Exercise 3 above, just replace the name of the data frame.
+
+```{r plot-prop-boys-present}
+ggplot(data = present, aes(x = year)) +
+  geom_line(aes(y = girls), color = "blue", linetype = "solid") +
+  geom_line(aes(y = boys), color = "red", linetype = "dashed") +
+  scale_linetype_manual(values = c("solid", "dashed")) +
+  scale_color_manual(values = c("blue", "red"))
+
+present$girls > present$boys
+```
+
+As you can see the boy's graph in red always higher than girl's graph in blue. Therefore from Arbuthnot's observation about girl being born in greater proportion than boys doesn't hold up in U.S.
+
+### Exercise 7
+
+In what year did we see the most total number of births in the U.S.? Hint: First calculate the totals and save it as a new variable. Then, sort your dataset in descending order based on the total column. You can do this interactively in the data viewer by clicking on the arrows next to the variable names. To include the sorted result in your report you will need to use two new functions. First we use arrange() to sorting the variable. Then we can arrange the data in a descending order with another function, desc(), for descending order. The sample code is provided below.
+
+```{r find-max-total}
+present <- present %>%
+        mutate(total = boys + girls)
+present %>%
+        arrange(desc(total))
+
+```
+
+As you can see the year with the most birth is year 1961.
