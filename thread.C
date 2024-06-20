@@ -1,21 +1,22 @@
-int rc1 = fork()
-int rc2 = fork()
-if (rc1 == 0 ){
-    pthread_create();
-    int rc3 = fork();
-    pthread_create();
-    if ( rc3 > 0 ){
-        fork();
-    }
-}
+#include <stdio.h>
 
-if (rc2 > 0 ){
-    int rc4 = fork();
-    pthread_create();
-    int rc5 = fork();
-    pthread_create();
-    if ( rc4 > 0 ){
-        int rc6 = fork();
-        pthread_create();
+int main()
+
+{
+    double epsilon = 1;
+    float one = 1;
+
+    while (1 + epsilon != 1){
+        printf("Epsilon = %.100f\n", epsilon);
+        epsilon/=2;
+
     }
+    printf("Epsilon = %.100f\n", epsilon);
+
+    if (1 + epsilon == 1)
+        printf("yes\n");
+    else
+        printf("no");
+
+    return 0;
 }

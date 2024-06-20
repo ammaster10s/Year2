@@ -1,5 +1,6 @@
 {
   "files.associations": {
-    "Testing.C": "cpp"
+    "Testing.C": "cpp",
+    "thread.C": "cpp"
   }
 }
