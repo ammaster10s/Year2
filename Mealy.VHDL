@@ -6,6 +6,7 @@ entity mealy_machine_state is
 
 	port(
 
+			input : in std_logic_vector(1 downto 0);
 			rst : in std_logic;
 			clk : in std_logic;
 			output : out std_logic;
